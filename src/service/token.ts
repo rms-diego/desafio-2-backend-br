@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken';
-import { IUser } from '../interface';
+import { IUser, IUserCreated } from '../interface';
 
 const { SECRET } = process.env;
 
-const encode = (payload: IUser) => {
+const encode = (payload: (IUser | IUserCreated)) => {
   if (SECRET) return jwt.sign({ ...payload }, SECRET, { algorithm: 'RS256', expiresIn: '365d' });
 } 
 
