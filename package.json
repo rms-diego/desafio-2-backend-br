@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only --exit-child src/server.ts",
-    "start": "npx tsc && node dist/server.js"
+    "start": "npx tsc && npm run db:create  && node dist/server.js",
+    "db:reset": "npx prisma migrate reset",
+    "db:create": "npx prisma migrate dev"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
