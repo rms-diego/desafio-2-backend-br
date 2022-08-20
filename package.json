@@ -1,7 +1,7 @@
 {
   "name": "desafio-2-backend-br",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.ts",
   "repository": "git@github.com:Drb-Diego/desafio-2-backend-br.git",
   "author": "Diego Brito <diegorbrito9@gmail.com>",
   "license": "MIT",
