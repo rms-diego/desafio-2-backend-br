@@ -23,7 +23,21 @@ const getAll = async (_request: Request, response: Response, next: NextFunction)
     next();
   }
 }
+
+const getById = async (request: Request, response: Response, next: NextFunction) => {
+  try {
+    const { id } = request.params;
+    
+    const userFinded = await userModel.getById(+id);
+
+    return response.status(200).json(userFinded);
+  } catch (error) {
+    next();
+  }
+}
+
 export default {
-  getAll,
   create,
+  getAll,
+  getById,
 }

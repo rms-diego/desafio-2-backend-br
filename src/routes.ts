@@ -12,4 +12,10 @@ routes.get(
   UserController.getAll
 );
 
+routes.get(
+  '/user/getById/:id',
+  validateTokenMiddleware,
+  UserController.getById,
+);
+
 export default routes;

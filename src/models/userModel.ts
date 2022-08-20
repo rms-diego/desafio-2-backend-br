@@ -9,7 +9,10 @@ const create = async ({ userDocument, creditCard, value }: IUser) => (
 
 const getAll = async () => connection.user.findMany();
 
+const getById = async (id: number) => connection.user.findMany({ where: { id } });
+
 export default {
   create,
   getAll,
+  getById,
 }
