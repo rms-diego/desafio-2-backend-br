@@ -30,7 +30,7 @@ const getById = async (request: Request, response: Response, next: NextFunction)
     
     const userFinded = await userModel.getById(+id);
 
-    return response.status(200).json(userFinded);
+    return response.status(200).json(...userFinded);
   } catch (error) {
     next();
   }
@@ -47,9 +47,21 @@ const update = async (request: Request, response: Response, next: NextFunction) 
   }
 }
 
+const deleteUser = async (request: Request, response: Response, next: NextFunction) => {
+  try {
+    const { id } = request.params;
+    await userModel.deleteUser(+id)
+
+    return response.status(200).json({ message: 'user deleted' });
+  } catch (error) {
+    next();
+  }
+}
+
 export default {
   create,
   getAll,
   getById,
   update,
+  deleteUser
 }

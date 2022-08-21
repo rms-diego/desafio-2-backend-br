@@ -22,6 +22,13 @@ routes.put(
   '/user/update/:id',
   validateTokenMiddleware,
   UserController.update,
+);
+
+
+routes.delete(
+  '/user/delete/:id',
+  validateTokenMiddleware,
+  UserController.deleteUser,
 )
 
 export default routes;

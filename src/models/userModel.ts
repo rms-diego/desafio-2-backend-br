@@ -18,9 +18,14 @@ const update = async (id: number, payload: IUserUpdate) => (
   })
 )
 
+const deleteUser = (id: number) => (
+  connection.user.delete({ where: { id } })
+)
+
 export default {
   create,
   getAll,
   getById,
   update,
+  deleteUser,
 }
