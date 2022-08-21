@@ -36,8 +36,20 @@ const getById = async (request: Request, response: Response, next: NextFunction)
   }
 }
 
+const update = async (request: Request, response: Response, next: NextFunction) => {
+  try {
+    const { id } = request.params;
+    await userService.update(+id, request.body)
+
+    return response.status(200).json({ message: 'user updated' });
+  } catch (error) {
+    next();
+  }
+}
+
 export default {
   create,
   getAll,
   getById,
+  update,
 }

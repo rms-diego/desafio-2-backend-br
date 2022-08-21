@@ -9,7 +9,7 @@ routes.post('/user/createUser', UserController.create);
 routes.get(
   '/user/getAll',
   validateTokenMiddleware,
-  UserController.getAll
+  UserController.getAll,
 );
 
 routes.get(
@@ -17,5 +17,11 @@ routes.get(
   validateTokenMiddleware,
   UserController.getById,
 );
+
+routes.put(
+  '/user/update/:id',
+  validateTokenMiddleware,
+  UserController.update,
+)
 
 export default routes;

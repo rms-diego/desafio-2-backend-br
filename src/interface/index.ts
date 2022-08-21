@@ -10,3 +10,9 @@ export interface IUserCreated {
   creditCardToken: string;
   value: number;
 }
+
+export interface IUserUpdate {
+  userDocument?: string;
+  creditCard?: string;
+  value?: number;
+}
