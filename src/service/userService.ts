@@ -21,15 +21,15 @@ const create = async ({ userDocument, creditCard, value }: IUser) => {
 const update = async(id: number, { creditCard, userDocument, value }: IUserUpdate) => {
   if (creditCard) { 
     const creditCardEncoded = await  bcrypt.hash(creditCard, 5);
-    return userModel.update(+id, { creditCard: creditCardEncoded })
+    return userModel.update(+id, { creditCard: creditCardEncoded });
   };
   
   if (userDocument) {
     const userDocumentEncoded = await bcrypt.hash(userDocument, 5);
-     return userModel.update(+id, { userDocument: userDocumentEncoded })
+    return userModel.update(+id, { userDocument: userDocumentEncoded });
   };
 
-  if (value) return userModel.update(+id, { value });
+  return userModel.update(+id, { value });
 }
 
 export default {
