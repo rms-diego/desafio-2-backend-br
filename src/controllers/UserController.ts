@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-import userModel from "../models/userModel";
 import userService from "../service/userService";
 
 const create = async (request: Request, response: Response, next: NextFunction) => {
@@ -16,7 +15,7 @@ const create = async (request: Request, response: Response, next: NextFunction) 
 
 const getAll = async (_request: Request, response: Response, next: NextFunction) => {
   try {
-    const allUsers = await userModel.getAll();
+    const allUsers = await userService.getAll();
 
     return response.status(200).json(allUsers);
   } catch (error) {
@@ -28,7 +27,7 @@ const getById = async (request: Request, response: Response, next: NextFunction)
   try {
     const { id } = request.params;
     
-    const userFinded = await userModel.getById(+id);
+    const userFinded = await userService.getById(+id);
 
     return response.status(200).json(...userFinded);
   } catch (error) {
@@ -50,7 +49,7 @@ const update = async (request: Request, response: Response, next: NextFunction) 
 const deleteUser = async (request: Request, response: Response, next: NextFunction) => {
   try {
     const { id } = request.params;
-    await userModel.deleteUser(+id)
+    await userService.deleteUser(+id)
 
     return response.status(200).json({ message: 'user deleted' });
   } catch (error) {
